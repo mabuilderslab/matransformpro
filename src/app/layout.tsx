@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
+import ErrorReporter from "@/components/ErrorReporter";
+import Script from "next/script";
+
 export const metadata: Metadata = {
   title: "MA Transform Lab - Human Systems Optimization & Business Transformation",
   description: "Transform your health, mindset, and business with proven systems. 750+ human systems optimized, 28+ businesses launched across 5 continents.",
@@ -6,3 +12,29 @@ export const metadata: Metadata = {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='black'/><circle cx='50' cy='50' r='30' fill='%238b5cf6'/></svg>",
   }
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className="antialiased">
+        <ErrorReporter />
+        <Script
+          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
+          strategy="afterInteractive"
+          data-target-origin="*"
+          data-message-type="ROUTE_CHANGE"
+          data-include-search-params="true"
+          data-only-in-iframe="true"
+          data-debug="true"
+          data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
+        />
+        {children}
+        <VisualEditsMessenger />
+      </body>
+    </html>
+  );
+}
