@@ -1,0 +1,125 @@
+/* Updated: 2025-11-17T21:00:49.534Z */
+/* Updated: 2025-11-17T20:53:10.897Z */
+/* Updated: 2025-11-17T19:48:48.090Z */
+/* Updated: 2025-11-17T19:47:52.064Z */
+/* Updated: 2025-11-17T19:44:18.116Z */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant inline dark (&:is(.dark *));
+
+@theme {
+  --color-black-pure: #000000;
+  --color-purple-deep: #6d28d9;
+  --color-purple-royal: #8b5cf6;
+  --color-blue-primary: #3b82f6;
+  --color-gold-primary: #fbbf24;
+  --color-orange-primary: #f97316;
+  --color-green-emerald: #10b981;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 18px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 8px 32px rgba(31, 38, 135, 0.37),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .box-light {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .box-dark {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gradient-purple-gold {
+    background: linear-gradient(135deg, #8b5cf6 0%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-blue-gold {
+    background: linear-gradient(135deg, #3b82f6 0%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-green-gold {
+    background: linear-gradient(135deg, #10b981 0%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-orange-gold {
+    background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
